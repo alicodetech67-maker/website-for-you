@@ -1,0 +1,4738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="WFY — Website For You. Modern, fast and responsive websites for businesses.">
+<meta name="theme-color" content="#000000">
+<title>WFY | Website For You</title>
+
+<style>
+:root{
+  --bg:#000;
+  --panel:#080808;
+  --panel2:#0d0d0d;
+  --text:#fff;
+  --muted:#aaa;
+  --line:#292929;
+  --soft:#151515;
+  --radius:12px;
+  --max:1310px;
+  --ease:cubic-bezier(.22,.61,.36,1)
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0
+}
+
+html{
+  scroll-behavior:smooth;
+  background:#000
+}
+
+body{
+  min-height:100vh;
+  background:#000;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  overflow-x:hidden
+}
+
+button,
+input,
+select,
+textarea{
+  font:inherit
+}
+
+button{
+  color:inherit
+}
+
+a{
+  color:inherit;
+  text-decoration:none
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+  outline:2px solid #fff;
+  outline-offset:3px
+}
+
+
+/* =========================================================
+   PAGE SYSTEM
+========================================================= */
+
+.site{
+  min-height:100vh;
+  background:#000
+}
+
+.page{
+  display:none;
+  min-height:100vh;
+  animation:pageIn .45s var(--ease)
+}
+
+.page.active{
+  display:block
+}
+
+@keyframes pageIn{
+  from{
+    opacity:0;
+    transform:translateY(12px)
+  }
+
+  to{
+    opacity:1;
+    transform:none
+  }
+}
+
+
+/* =========================================================
+   HEADER
+   SAME ALIGNMENT ON EVERY PAGE
+========================================================= */
+
+.header{
+  height:70px;
+  border-bottom:1px solid #202020;
+  background:#000;
+  position:sticky;
+  top:0;
+  z-index:1000
+}
+
+.header-inner{
+  width:min(calc(100% - 120px),1536px);
+  height:100%;
+  margin:auto;
+
+  display:grid;
+  grid-template-columns:250px 1fr 180px;
+  align-items:center
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0
+}
+
+.brand-mark{
+  font-size:34px;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:-3px
+}
+
+.brand-copy{
+  display:flex;
+  flex-direction:column;
+  line-height:1.05;
+  font-size:13px;
+  font-weight:700
+}
+
+.brand-copy span:last-child{
+  font-weight:500;
+  color:#ddd
+}
+
+
+/* NAVIGATION */
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:34px;
+  height:100%
+}
+
+.nav button{
+  position:relative;
+  border:0;
+  background:transparent;
+  color:#eee;
+  font-size:14px;
+  cursor:pointer;
+  padding:25px 0;
+  white-space:nowrap
+}
+
+.nav button:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:15px;
+  height:1px;
+  background:#fff;
+
+  transform:scaleX(0);
+  transform-origin:center;
+
+  transition:.2s
+}
+
+.nav button:hover:after,
+.nav button.active:after{
+  transform:scaleX(1)
+}
+
+
+/* HEADER GET STARTED */
+
+.header-cta{
+  justify-self:end;
+
+  border:1px solid #666;
+  background:#050505;
+
+  border-radius:8px;
+
+  padding:10px 18px;
+
+  font-size:14px;
+
+  cursor:pointer;
+
+  transition:.2s
+}
+
+.header-cta:hover{
+  background:#fff;
+  color:#000;
+  border-color:#fff
+}
+
+
+/* =========================================================
+   GENERIC
+========================================================= */
+
+.container{
+  width:min(calc(100% - 120px),var(--max));
+  margin:auto
+}
+
+.eyebrow{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  color:#888;
+  margin-bottom:16px
+}
+
+.section-title{
+  font-size:30px;
+  line-height:1.1;
+  letter-spacing:-1px;
+  text-transform:uppercase
+}
+
+.section-subtitle{
+  color:#aaa;
+  margin-top:9px;
+  line-height:1.6
+}
+
+.line{
+  height:1px;
+  background:#202020
+}
+
+.icon{
+  width:54px;
+  height:54px;
+
+  border:1px solid #444;
+  border-radius:50%;
+
+  display:grid;
+  place-items:center;
+
+  font-size:25px;
+
+  flex:0 0 auto
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+.hero{
+  min-height:445px;
+  border-bottom:1px solid #202020
+}
+
+.hero-grid{
+  width:min(calc(100% - 120px),1310px);
+  margin:auto;
+
+  min-height:445px;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+
+  align-items:center;
+
+  gap:70px
+}
+
+.hero h1{
+  font-size:62px;
+  line-height:1.03;
+
+  letter-spacing:-3px;
+
+  text-transform:uppercase;
+
+  max-width:620px
+}
+
+.hero p{
+  font-size:18px;
+  color:#bbb;
+
+  line-height:1.55;
+
+  max-width:520px;
+
+  margin-top:18px
+}
+
+
+/* HERO BUTTONS */
+
+.actions{
+  display:flex;
+  gap:14px;
+  margin-top:25px
+}
+
+.btn{
+  border:1px solid #777;
+
+  border-radius:11px;
+
+  background:#050505;
+
+  color:#fff;
+
+  padding:12px 22px;
+
+  cursor:pointer;
+
+  transition:.2s;
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:10px
+}
+
+.btn:hover{
+  background:#fff;
+  color:#000;
+  border-color:#fff;
+
+  transform:translateY(-1px)
+}
+
+.btn.primary{
+  background:#fff;
+  color:#000;
+  border-color:#fff
+}
+
+.btn.primary:hover{
+  background:#ddd
+}
+
+
+/* HERO FEATURES */
+
+.hero-points{
+  display:flex;
+  gap:32px;
+
+  margin-top:35px;
+
+  flex-wrap:wrap
+}
+
+.point{
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  color:#ddd;
+
+  font-size:14px
+}
+
+.point .mini{
+  width:40px;
+  height:40px;
+
+  border:1px solid #444;
+
+  border-radius:50%;
+
+  display:grid;
+  place-items:center;
+
+  font-size:18px
+}
+
+
+/* =========================================================
+   CODED LAPTOP / WEBSITE PREVIEW
+========================================================= */
+
+.hero-art{
+  height:330px;
+
+  border:1px solid #333;
+
+  border-radius:22px;
+
+  background:
+    radial-gradient(
+      circle at 82% 58%,
+      #252525 0,
+      #101010 18%,
+      #050505 45%,
+      #000 70%
+    );
+
+  position:relative;
+
+  overflow:hidden;
+
+  box-shadow:
+    0 0 0 1px #111 inset
+}
+
+.hero-art:before{
+  content:"";
+
+  position:absolute;
+
+  width:410px;
+  height:410px;
+
+  border:1px solid #444;
+
+  border-radius:50%;
+
+  right:-120px;
+  bottom:-170px;
+
+  box-shadow:
+    0 0 40px rgba(255,255,255,.06) inset
+}
+
+.hero-art:after{
+  content:"";
+
+  position:absolute;
+
+  left:10%;
+  right:10%;
+
+  bottom:0;
+
+  height:11px;
+
+  background:
+    linear-gradient(
+      #444,
+      #151515
+    );
+
+  border-radius:3px 3px 0 0
+}
+
+.mock-nav{
+  position:absolute;
+
+  top:28px;
+  left:30px;
+  right:30px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  font-size:8px;
+
+  color:#ddd
+}
+
+.mock-logo{
+  font-size:12px;
+  font-weight:800
+}
+
+.mock-links{
+  display:flex;
+  gap:15px;
+  align-items:center
+}
+
+.mock-links i{
+  font-style:normal
+}
+
+.mock-btn{
+  border:1px solid #555;
+
+  border-radius:8px;
+
+  padding:4px 8px
+}
+
+.mock-copy{
+  position:absolute;
+
+  left:30px;
+  top:98px;
+
+  width:250px
+}
+
+.mock-copy h3{
+  font-size:27px;
+
+  line-height:1.05;
+
+  text-transform:uppercase
+}
+
+.mock-copy p{
+  font-size:9px;
+
+  color:#aaa;
+
+  margin-top:12px;
+
+  line-height:1.5
+}
+
+.mock-copy span{
+  display:inline-block;
+
+  margin-top:16px;
+
+  border:1px solid #777;
+
+  padding:6px 9px;
+
+  border-radius:5px;
+
+  font-size:8px
+}
+
+.orb{
+  position:absolute;
+
+  right:18px;
+  bottom:15px;
+
+  width:170px;
+  height:170px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      #333,
+      #080808 58%,
+      #000
+    );
+
+  box-shadow:
+    -20px -5px 40px rgba(255,255,255,.08)
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services{
+  padding:28px 0 25px;
+
+  border-bottom:1px solid #202020
+}
+
+.center{
+  text-align:center
+}
+
+.service-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:20px;
+
+  margin-top:24px
+}
+
+.service-card{
+  min-height:142px;
+
+  border:1px solid #333;
+
+  border-radius:8px;
+
+  padding:24px;
+
+  background:#000;
+
+  transition:.2s
+}
+
+.service-card:hover{
+  border-color:#666;
+
+  transform:translateY(-3px)
+}
+
+.service-card .service-icon{
+  font-size:34px;
+
+  margin-bottom:15px
+}
+
+.service-card h3{
+  font-size:17px;
+
+  margin-bottom:9px
+}
+
+.service-card p{
+  font-size:14px;
+
+  color:#aaa;
+
+  line-height:1.5
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process{
+  padding:15px 0 35px;
+
+  border-bottom:1px solid #202020
+}
+
+.process-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:20px;
+
+  margin-top:28px
+}
+
+.step{
+  text-align:center;
+
+  position:relative
+}
+
+.step:not(:last-child):after{
+  content:"→";
+
+  position:absolute;
+
+  top:25px;
+
+  right:-15px;
+
+  color:#555;
+
+  font-size:28px
+}
+
+.step-num{
+  width:64px;
+  height:64px;
+
+  border:1px solid #666;
+
+  border-radius:50%;
+
+  display:grid;
+
+  place-items:center;
+
+  margin:auto;
+
+  font-size:22px
+}
+
+.step small{
+  display:block;
+
+  color:#aaa;
+
+  margin-top:12px
+}
+
+.step h3{
+  font-size:13px;
+
+  margin-top:6px
+}
+
+.step p{
+  font-size:12px;
+
+  color:#aaa;
+
+  line-height:1.5;
+
+  max-width:210px;
+
+  margin:8px auto 0
+}
+
+
+/* =========================================================
+   CONTACT / GET STARTED
+========================================================= */
+
+.contact-section{
+  padding:34px 0 28px
+}
+
+.contact-grid{
+  display:grid;
+
+  grid-template-columns:300px 1fr;
+
+  gap:85px;
+
+  align-items:start
+}
+
+.contact-info h1{
+  font-size:42px;
+
+  text-transform:uppercase;
+
+  letter-spacing:-2px
+}
+
+.contact-info>p{
+  color:#bbb;
+
+  line-height:1.65;
+
+  margin-top:20px;
+
+  padding-bottom:25px;
+
+  border-bottom:1px solid #252525
+}
+
+.info-list{
+  display:grid;
+
+  gap:21px;
+
+  margin-top:25px
+}
+
+.info-item{
+  display:flex;
+
+  gap:15px;
+
+  align-items:center
+}
+
+.info-item .icon{
+  width:54px;
+  height:54px
+}
+
+.info-item strong{
+  display:block;
+
+  font-size:15px;
+
+  margin-bottom:5px
+}
+
+.info-item span{
+  display:block;
+
+  color:#aaa;
+
+  font-size:13px
+}
+
+
+/* CONTACT FORM */
+
+.form-panel{
+  border:1px solid #333;
+
+  border-radius:7px;
+
+  padding:30px 36px;
+
+  background:#000
+}
+
+.form-panel h2{
+  font-size:24px;
+
+  text-transform:uppercase
+}
+
+.form-panel>p{
+  color:#aaa;
+
+  margin-top:8px;
+
+  margin-bottom:25px
+}
+
+.form-grid{
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:21px 30px
+}
+
+.field{
+  display:flex;
+
+  flex-direction:column;
+
+  gap:7px
+}
+
+.field.full{
+  grid-column:1/-1
+}
+
+.field label{
+  font-size:13px
+}
+
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+
+  border:1px solid #333;
+
+  border-radius:6px;
+
+  background:#000;
+
+  color:#fff;
+
+  padding:12px 13px;
+
+  min-height:44px;
+
+  outline:0
+}
+
+.field textarea{
+  height:84px;
+
+  resize:vertical
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  border-color:#777;
+
+  box-shadow:
+    0 0 0 3px rgba(255,255,255,.04)
+}
+
+.field select option{
+  background:#111
+}
+
+.send{
+  width:100%;
+
+  margin-top:20px
+}
+
+.privacy{
+  text-align:center;
+
+  color:#777;
+
+  font-size:12px;
+
+  margin-top:17px
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq-section{
+  border-top:1px solid #202020;
+
+  padding:18px 0 28px
+}
+
+.faq-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:30px;
+
+  margin-top:20px
+}
+
+.faq{
+  border:1px solid #292929;
+
+  border-radius:7px;
+
+  padding:20px;
+
+  min-height:88px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  cursor:pointer;
+
+  transition:.2s
+}
+
+.faq:hover{
+  border-color:#666
+}
+
+.faq h3{
+  font-size:14px;
+
+  line-height:1.5
+}
+
+.faq span{
+  font-size:26px;
+
+  font-weight:300
+}
+
+
+/* =========================================================
+   PORTFOLIO
+========================================================= */
+
+.portfolio{
+  padding:31px 0 35px
+}
+
+.portfolio-top{
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:50px;
+
+  align-items:end;
+
+  padding-bottom:28px
+}
+
+.portfolio-top h1{
+  font-size:42px;
+
+  line-height:1.05;
+
+  text-transform:uppercase;
+
+  letter-spacing:-2px;
+
+  max-width:500px
+}
+
+.portfolio-top p{
+  color:#aaa;
+
+  line-height:1.6;
+
+  margin-top:15px;
+
+  max-width:560px
+}
+
+
+/* STATS */
+
+.stats{
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  border-left:1px solid #252525
+}
+
+.stat{
+  text-align:center;
+
+  border-right:1px solid #252525;
+
+  padding:10px 8px
+}
+
+.stat .stat-icon{
+  font-size:24px;
+
+  margin-bottom:10px
+}
+
+.stat strong{
+  display:block;
+
+  font-size:25px
+}
+
+.stat span{
+  display:block;
+
+  color:#aaa;
+
+  font-size:12px;
+
+  margin-top:7px
+}
+
+
+/* FILTERS */
+
+.filters{
+  display:flex;
+
+  gap:11px;
+
+  align-items:center;
+
+  border-top:1px solid #202020;
+
+  padding-top:18px;
+
+  margin-bottom:18px;
+
+  flex-wrap:wrap
+}
+
+.filter{
+  border:1px solid #333;
+
+  background:#000;
+
+  color:#fff;
+
+  border-radius:20px;
+
+  padding:9px 17px;
+
+  font-size:12px;
+
+  cursor:pointer
+}
+
+.filter.active,
+.filter:hover{
+  background:#fff;
+
+  color:#000;
+
+  border-color:#fff
+}
+
+.sort{
+  margin-left:auto;
+
+  border:1px solid #333;
+
+  border-radius:7px;
+
+  background:#000;
+
+  color:#fff;
+
+  padding:9px 13px
+}
+
+
+/* PROJECT GRID */
+
+.portfolio-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:14px
+}
+
+.project{
+  border:1px solid #282828;
+
+  border-radius:8px;
+
+  overflow:hidden;
+
+  background:#000;
+
+  transition:.2s
+}
+
+.project:hover{
+  border-color:#666;
+
+  transform:translateY(-3px)
+}
+
+.project-preview{
+  height:150px;
+
+  position:relative;
+
+  overflow:hidden;
+
+  background:#0b0b0b
+}
+
+.project-preview:after{
+  content:"";
+
+  position:absolute;
+
+  left:7%;
+  right:7%;
+
+  bottom:-1px;
+
+  height:8px;
+
+  background:#222;
+
+  border-radius:4px 4px 0 0
+}
+
+
+/* PROJECT PREVIEWS */
+
+.preview-law{
+  background:
+    radial-gradient(
+      circle at 70% 45%,
+      #333 0,
+      #111 25%,
+      #050505 60%
+    )
+}
+
+.preview-space{
+  background:
+    linear-gradient(
+      120deg,
+      #ddd,
+      #aaa 55%,
+      #f2f2f2
+    )
+}
+
+.preview-gym{
+  background:
+    radial-gradient(
+      circle at 68% 45%,
+      #444,
+      #111 25%,
+      #000 65%
+    )
+}
+
+.preview-beauty{
+  background:
+    linear-gradient(
+      120deg,
+      #eee,
+      #d7d0c8
+    )
+}
+
+.preview-fashion{
+  background:
+    linear-gradient(
+      120deg,
+      #eee,
+      #aaa
+    )
+}
+
+.preview-food{
+  background:
+    radial-gradient(
+      circle,
+      #5b412c,
+      #15100d 50%,
+      #000
+    )
+}
+
+.preview-digital{
+  background:
+    radial-gradient(
+      circle at 70% 50%,
+      #4a087f,
+      #08000f 45%,
+      #000
+    )
+}
+
+.preview-travel{
+  background:
+    linear-gradient(
+      #62778c,
+      #202b35 50%,
+      #0a0f13
+    )
+}
+
+.preview-text{
+  position:absolute;
+
+  left:18px;
+  top:18px;
+
+  font-size:13px;
+
+  font-weight:700;
+
+  max-width:150px;
+
+  z-index:2
+}
+
+.preview-text small{
+  display:block;
+
+  font-size:7px;
+
+  margin-top:8px;
+
+  color:#777
+}
+
+.project-body{
+  padding:13px
+}
+
+.project-body h3{
+  font-size:13px
+}
+
+.project-body p{
+  font-size:11px;
+
+  color:#999;
+
+  margin-top:6px
+}
+
+.project-arrow{
+  float:right;
+
+  font-size:20px;
+
+  margin-top:-18px;
+
+  border:0;
+
+  background:transparent;
+
+  color:inherit;
+
+  cursor:pointer;
+
+  line-height:1;
+
+  padding:2px 4px;
+
+  border-radius:4px;
+
+  transition:.2s
+}
+
+.project-arrow:hover{
+  color:#fff;
+
+  transform:translateX(2px)
+}
+
+
+/* PORTFOLIO CTA */
+
+.portfolio-cta{
+  margin-top:26px;
+
+  border:1px solid #292929;
+
+  border-radius:9px;
+
+  min-height:105px;
+
+  padding:22px 28px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  background:
+    radial-gradient(
+      circle at 65% 100%,
+      #151515,
+      transparent 40%
+    )
+}
+
+.portfolio-cta h3{
+  font-size:18px
+}
+
+.portfolio-cta p{
+  font-size:13px;
+
+  color:#aaa;
+
+  margin-top:6px
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+  border-top:1px solid #222;
+
+  padding:17px 0 0
+}
+
+.footer-main{
+  display:grid;
+
+  grid-template-columns:
+    1.2fr 1fr 1fr 1fr 1fr;
+
+  align-items:center;
+
+  gap:20px;
+
+  min-height:55px
+}
+
+.footer-brand{
+  display:flex;
+
+  align-items:center;
+
+  gap:9px
+}
+
+.footer-brand .brand-mark{
+  font-size:28px
+}
+
+.footer-item{
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  color:#ccc;
+
+  font-size:13px
+}
+
+.social{
+  justify-content:flex-end;
+
+  gap:22px
+}
+
+.copyright{
+  border-top:1px solid #171717;
+
+  margin-top:10px;
+
+  padding:12px 0;
+
+  text-align:center;
+
+  color:#777;
+
+  font-size:12px
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.overlay{
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(0,0,0,.78);
+
+  backdrop-filter:blur(8px);
+
+  opacity:0;
+
+  visibility:hidden;
+
+  pointer-events:none;
+
+  transition:.2s;
+
+  z-index:2000
+}
+
+.overlay.show{
+  opacity:1;
+
+  visibility:visible;
+
+  pointer-events:auto
+}
+
+.modal{
+  position:fixed;
+
+  z-index:2100;
+
+  left:50%;
+  top:50%;
+
+  transform:
+    translate(-50%,-47%)
+    scale(.96);
+
+  width:min(
+    650px,
+    calc(100% - 32px)
+  );
+
+  max-height:80vh;
+
+  overflow:auto;
+
+  background:#080808;
+
+  border:1px solid #3a3a3a;
+
+  border-radius:14px;
+
+  padding:30px;
+
+  opacity:0;
+
+  visibility:hidden;
+
+  pointer-events:none;
+
+  transition:.25s
+}
+
+.modal.show{
+  opacity:1;
+
+  visibility:visible;
+
+  pointer-events:auto;
+
+  transform:
+    translate(-50%,-50%)
+    scale(1)
+}
+
+.modal h2{
+  font-size:26px;
+
+  margin-bottom:12px
+}
+
+.modal p{
+  color:#aaa;
+
+  line-height:1.65
+}
+
+.modal-close{
+  position:absolute;
+
+  right:14px;
+  top:12px;
+
+  width:35px;
+  height:35px;
+
+  border:1px solid #444;
+
+  border-radius:50%;
+
+  background:#111;
+
+  color:#fff;
+
+  cursor:pointer;
+
+  font-size:20px
+}
+
+.modal-close:hover{
+  background:#fff;
+
+  color:#000
+}
+
+.modal-grid{
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:12px;
+
+  margin-top:20px
+}
+
+.modal-card{
+  border:1px solid #292929;
+
+  border-radius:10px;
+
+  padding:18px;
+
+  background:#0b0b0b
+}
+
+.modal-card h3{
+  font-size:15px;
+
+  margin-bottom:7px
+}
+
+.modal-card p{
+  font-size:13px
+}
+
+.modal-actions .btn{
+  cursor:pointer
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+  position:fixed;
+
+  z-index:2200;
+
+  left:50%;
+
+  bottom:25px;
+
+  transform:translate(-50%,15px);
+
+  background:#fff;
+
+  color:#000;
+
+  padding:12px 18px;
+
+  border-radius:9px;
+
+  font-size:13px;
+
+  font-weight:700;
+
+  opacity:0;
+
+  visibility:hidden;
+
+  transition:.2s
+}
+
+.toast.show{
+  opacity:1;
+
+  visibility:visible;
+
+  transform:translate(-50%,0)
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px){
+
+  .header-inner{
+    width:min(calc(100% - 40px),1536px);
+
+    grid-template-columns:
+      180px 1fr 135px
+  }
+
+  .nav{
+    gap:20px
+  }
+
+  .hero-grid{
+    width:min(calc(100% - 40px),1310px);
+
+    gap:35px
+  }
+
+  .hero h1{
+    font-size:48px
+  }
+
+  .container{
+    width:min(calc(100% - 40px),var(--max))
+  }
+
+  .service-grid,
+  .portfolio-grid{
+    grid-template-columns:
+      repeat(2,1fr)
+  }
+
+  .contact-grid{
+    grid-template-columns:1fr;
+
+    gap:35px
+  }
+
+  .portfolio-top{
+    grid-template-columns:1fr
+  }
+
+  .footer-main{
+    grid-template-columns:
+      1fr 1fr 1fr
+  }
+
+  .social{
+    justify-content:flex-start
+  }
+}
+
+
+@media(max-width:760px){
+
+  .header{
+    height:auto;
+
+    position:relative
+  }
+
+  .header-inner{
+    width:calc(100% - 28px);
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    padding:12px 0;
+
+    gap:10px
+  }
+
+  .brand{
+    margin-right:auto
+  }
+
+  .header-cta{
+    padding:8px 12px
+  }
+
+  .nav{
+    order:3;
+
+    width:100%;
+
+    overflow-x:auto;
+
+    justify-content:flex-start;
+
+    gap:24px;
+
+    height:42px
+  }
+
+  .nav button{
+    padding:11px 0;
+
+    font-size:12px
+  }
+
+  .nav button:after{
+    bottom:2px
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+
+    min-height:auto;
+
+    padding:55px 0
+  }
+
+  .hero-art{
+    height:280px
+  }
+
+  .hero h1{
+    font-size:44px
+  }
+
+  .hero-points{
+    gap:15px
+  }
+
+  .process-grid{
+    grid-template-columns:
+      1fr 1fr
+  }
+
+  .step:not(:last-child):after{
+    display:none
+  }
+
+  .faq-grid{
+    grid-template-columns:
+      1fr 1fr
+  }
+
+  .form-grid{
+    grid-template-columns:1fr
+  }
+
+  .field.full{
+    grid-column:auto
+  }
+
+  .portfolio-grid{
+    grid-template-columns:
+      1fr 1fr
+  }
+
+  .footer-main{
+    grid-template-columns:
+      1fr 1fr
+  }
+
+  .stats{
+    grid-template-columns:
+      repeat(2,1fr);
+
+    border-left:0
+  }
+
+  .stat{
+    border-top:1px solid #252525;
+
+    padding:15px
+  }
+
+  .portfolio-cta{
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:18px
+  }
+}
+
+
+@media(max-width:500px){
+
+  .container{
+    width:calc(100% - 28px)
+  }
+
+  .hero-grid{
+    width:calc(100% - 28px)
+  }
+
+  .hero h1{
+    font-size:36px;
+
+    letter-spacing:-2px
+  }
+
+  .hero p{
+    font-size:15px
+  }
+
+  .actions{
+    flex-direction:column;
+
+    align-items:stretch
+  }
+
+  .actions .btn{
+    justify-content:center
+  }
+
+  .service-grid,
+  .portfolio-grid,
+  .faq-grid,
+  .process-grid{
+    grid-template-columns:1fr
+  }
+
+  .form-panel{
+    padding:22px 17px
+  }
+
+  .contact-info h1,
+  .portfolio-top h1{
+    font-size:34px
+  }
+
+  .modal-grid{
+    grid-template-columns:1fr
+  }
+
+  .footer-main{
+    grid-template-columns:1fr
+  }
+
+  .social{
+    justify-content:flex-start
+  }
+
+  .brand-mark{
+    font-size:29px
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="site">
+
+
+<!-- =========================================================
+     HOME PAGE
+========================================================= -->
+
+<section class="page active" id="home">
+
+<header class="header">
+
+<div class="header-inner">
+
+<div class="brand">
+
+<div class="brand-mark">
+WFY
+</div>
+
+<div class="brand-copy">
+<span>WEBSITE</span>
+<span>FOR YOU</span>
+</div>
+
+</div>
+
+
+<nav class="nav">
+
+<button
+data-page="home"
+class="active">
+Home
+</button>
+
+<button
+data-modal="services">
+Services
+</button>
+
+<button
+data-modal="process">
+Process
+</button>
+
+<button
+data-page="portfolio">
+Portfolio
+</button>
+
+<button
+data-modal="pricing">
+Pricing
+</button>
+
+<button
+data-modal="faq">
+FAQ
+</button>
+
+<button
+data-page="contact">
+Contact
+</button>
+
+</nav>
+
+
+<button
+class="header-cta"
+data-page="contact">
+
+Get Started
+
+</button>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-grid">
+
+
+<div>
+
+<div class="eyebrow">
+WEBSITE FOR YOU
+</div>
+
+
+<h1>
+WE BUILD WEBSITES FOR YOU
+</h1>
+
+
+<p>
+We create modern, fast and responsive websites
+that help your business grow.
+</p>
+
+
+<div class="actions">
+
+<button
+class="btn primary"
+data-page="contact">
+
+Get Started
+
+<span>→</span>
+
+</button>
+
+
+<button
+class="btn"
+data-page="portfolio">
+
+View Our Work
+
+</button>
+
+</div>
+
+
+<div class="hero-points">
+
+
+<div class="point">
+
+<span class="mini">
+ϟ
+</span>
+
+Fast Delivery
+
+</div>
+
+
+<div class="point">
+
+<span class="mini">
+♢
+</span>
+
+Secure &amp; Reliable
+
+</div>
+
+
+<div class="point">
+
+<span class="mini">
+▣
+</span>
+
+Responsive Design
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- CODED WEBSITE PREVIEW -->
+
+<div class="hero-art">
+
+<div class="mock-nav">
+
+<span class="mock-logo">
+WEBSITE<br>
+FOR YOU
+</span>
+
+
+<span class="mock-links">
+
+<i>HOME</i>
+<i>ABOUT</i>
+<i>SERVICES</i>
+<i>CONTACT</i>
+
+<span class="mock-btn">
+GET STARTED
+</span>
+
+</span>
+
+</div>
+
+
+<div class="mock-copy">
+
+<h3>
+MODERN WEBSITES<br>
+THAT REPRESENT<br>
+YOUR BRAND.
+</h3>
+
+<p>
+We design and develop stunning websites
+tailored to your needs.
+</p>
+
+<span>
+OUR SERVICES
+</span>
+
+</div>
+
+
+<div class="orb"></div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="services">
+
+<div class="container">
+
+
+<div class="center">
+
+<h2 class="section-title">
+OUR SERVICES
+</h2>
+
+<p class="section-subtitle">
+We offer everything you need to build
+a powerful online presence.
+</p>
+
+</div>
+
+
+<div class="service-grid">
+
+
+<article class="service-card">
+
+<div class="service-icon">
+◎
+</div>
+
+<h3>
+Custom Websites
+</h3>
+
+<p>
+We build custom websites designed
+to fit your brand and goals.
+</p>
+
+</article>
+
+
+<article class="service-card">
+
+<div class="service-icon">
+🛒
+</div>
+
+<h3>
+E-Commerce
+</h3>
+
+<p>
+Powerful online stores that help
+you sell your products easily.
+</p>
+
+</article>
+
+
+<article class="service-card">
+
+<div class="service-icon">
+▣
+</div>
+
+<h3>
+Responsive Design
+</h3>
+
+<p>
+Your website will look perfect on
+all devices — phones, tablets,
+and computers.
+</p>
+
+</article>
+
+
+<article class="service-card">
+
+<div class="service-icon">
+⚙
+</div>
+
+<h3>
+Website Maintenance
+</h3>
+
+<p>
+We keep your website updated,
+secure and running smoothly.
+</p>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROCESS -->
+
+<section class="process">
+
+<div class="container">
+
+
+<div class="center">
+
+<h2 class="section-title">
+OUR PROCESS
+</h2>
+
+<p class="section-subtitle">
+Simple steps to get your website done.
+</p>
+
+</div>
+
+
+<div class="process-grid">
+
+
+<div class="step">
+
+<div class="step-num">
+01
+</div>
+
+<small>
+DISCUSS
+</small>
+
+<h3>
+Talk
+</h3>
+
+<p>
+We talk about your ideas,
+needs and goals.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-num">
+02
+</div>
+
+<small>
+PLAN
+</small>
+
+<h3>
+Plan
+</h3>
+
+<p>
+We plan the design,
+features and structure.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-num">
+03
+</div>
+
+<small>
+DEVELOP
+</small>
+
+<h3>
+Build
+</h3>
+
+<p>
+We build your website
+with clean code.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-num">
+04
+</div>
+
+<small>
+LAUNCH
+</small>
+
+<h3>
+Launch
+</h3>
+
+<p>
+We test everything and
+launch your website.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="footer-main">
+
+
+<div class="footer-brand">
+
+<div class="brand-mark">
+WFY
+</div>
+
+<div class="brand-copy">
+
+<span>
+WEBSITE
+</span>
+
+<span>
+FOR YOU
+</span>
+
+</div>
+
+</div>
+
+
+<div class="footer-item">
+
+✉
+
+<span>
+hello@wfy.com
+</span>
+
+</div>
+
+
+<div class="footer-item">
+
+⌕
+
+<span>
++20 123 456 7890
+</span>
+
+</div>
+
+
+<div class="footer-item">
+
+⌖
+
+<span>
+Cairo, Egypt
+</span>
+
+</div>
+
+
+<div class="footer-item social">
+
+<span>
+◎
+</span>
+
+<span>
+in
+</span>
+
+<span>
+f
+</span>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+© 2026 WFY. All rights reserved.
+</div>
+
+</div>
+
+</footer>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONTACT PAGE
+========================================================= -->
+
+<section class="page" id="contact">
+
+
+<header class="header">
+
+<div class="header-inner">
+
+
+<div class="brand">
+
+<div class="brand-mark">
+WFY
+</div>
+
+<div class="brand-copy">
+
+<span>
+WEBSITE
+</span>
+
+<span>
+FOR YOU
+</span>
+
+</div>
+
+</div>
+
+
+<nav class="nav">
+
+<button
+data-page="home">
+Home
+</button>
+
+<button
+data-modal="services">
+Services
+</button>
+
+<button
+data-modal="process">
+Process
+</button>
+
+<button
+data-page="portfolio">
+Portfolio
+</button>
+
+<button
+data-modal="pricing">
+Pricing
+</button>
+
+<button
+data-modal="faq">
+FAQ
+</button>
+
+<button
+data-page="contact"
+class="active">
+Contact
+</button>
+
+</nav>
+
+
+<button
+class="header-cta"
+data-page="contact">
+
+Get Started
+
+</button>
+
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<section class="contact-section">
+
+<div class="container">
+
+<div class="contact-grid">
+
+
+<!-- LEFT SIDE -->
+
+<aside class="contact-info">
+
+<div class="eyebrow">
+START A PROJECT
+</div>
+
+
+<h1>
+GET STARTED
+</h1>
+
+
+<p>
+
+Ready to take your business online?
+
+<br>
+
+Fill out the form and we’ll get back
+to you within 24 hours.
+
+</p>
+
+
+<div class="info-list">
+
+
+<div class="info-item">
+
+<div class="icon">
+ϟ
+</div>
+
+<div>
+
+<strong>
+Fast Response
+</strong>
+
+<span>
+We reply within 24 hours.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="info-item">
+
+<div class="icon">
+♢
+</div>
+
+<div>
+
+<strong>
+100% Secure
+</strong>
+
+<span>
+Your information is safe with us.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="info-item">
+
+<div class="icon">
+◯
+</div>
+
+<div>
+
+<strong>
+Free Consultation
+</strong>
+
+<span>
+Let's discuss your project.
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+</aside>
+
+
+<!-- FORM -->
+
+<div class="form-panel">
+
+
+<h2>
+TELL US ABOUT YOUR PROJECT
+</h2>
+
+
+<p>
+Fill out the details below and we’ll
+help you bring your idea to life.
+</p>
+
+
+<form id="projectForm">
+
+
+<div class="form-grid">
+
+
+<div class="field">
+
+<label for="fullName">
+Full Name
+</label>
+
+<input
+id="fullName"
+name="fullName"
+required
+placeholder="Your name">
+
+</div>
+
+
+<div class="field">
+
+<label for="email">
+Email Address
+</label>
+
+<input
+id="email"
+name="email"
+type="email"
+required
+placeholder="you@example.com">
+
+</div>
+
+
+<div class="field">
+
+<label for="business">
+Business Name (Optional)
+</label>
+
+<input
+id="business"
+name="business"
+placeholder="Business name">
+
+</div>
+
+
+<div class="field">
+
+<label for="phone">
+Phone Number
+</label>
+
+<input
+id="phone"
+name="phone"
+placeholder="+20...">
+
+</div>
+
+
+<div class="field full">
+
+<label for="type">
+What type of website do you need?
+</label>
+
+<select
+id="type"
+name="type"
+required>
+
+<option value="">
+Select website type
+</option>
+
+<option>
+Business Website
+</option>
+
+<option>
+E-Commerce
+</option>
+
+<option>
+Portfolio
+</option>
+
+<option>
+Blog
+</option>
+
+<option>
+Landing Page
+</option>
+
+<option>
+Other
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field full">
+
+<label for="message">
+Tell us about your project
+</label>
+
+<textarea
+id="message"
+name="message"
+required
+minlength="10"
+placeholder="Tell us about your project, goals and ideas..."></textarea>
+
+</div>
+
+
+</div>
+
+
+<button
+class="btn primary send"
+type="submit">
+
+Send Message
+
+<span>
+→
+</span>
+
+</button>
+
+
+<div class="privacy">
+
+♧ We respect your privacy.
+Your information is safe with us.
+
+</div>
+
+
+</form>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- FAQ -->
+
+<section class="faq-section">
+
+<div class="container">
+
+
+<div class="center">
+
+<h2 class="section-title">
+FREQUENTLY ASKED QUESTIONS
+</h2>
+
+<p class="section-subtitle">
+Got questions? We’ve got answers.
+</p>
+
+</div>
+
+
+<div class="faq-grid">
+
+
+<button
+type="button"
+class="faq"
+data-faq="How long does it take to build a website?"
+data-answer="Most websites take a few days to a few weeks depending on the size, number of pages and features required.">
+
+<h3>
+How long does it take to
+<br>
+build a website?
+</h3>
+
+<span aria-hidden="true">
++
+</span>
+
+</button>
+
+
+<button
+type="button"
+class="faq"
+data-faq="What do you need from me to get started?"
+data-answer="We normally need your business information, logo, content, images, contact details and an idea of what you want your website to accomplish.">
+
+<h3>
+What do you need from
+<br>
+me to get started?
+</h3>
+
+<span aria-hidden="true">
++
+</span>
+
+</button>
+
+
+<button
+type="button"
+class="faq"
+data-faq="Can I update my website myself?"
+data-answer="Yes. We can build your website so that you can update important content yourself, or we can handle updates for you.">
+
+<h3>
+Can I update my website
+<br>
+myself?
+</h3>
+
+<span aria-hidden="true">
++
+</span>
+
+</button>
+
+
+<button
+type="button"
+class="faq"
+data-faq="Do you offer website maintenance?"
+data-answer="Yes. We can provide ongoing maintenance, security updates, content changes and improvements.">
+
+<h3>
+Do you offer website
+<br>
+maintenance?
+</h3>
+
+<span aria-hidden="true">
++
+</span>
+
+</button>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="footer-main">
+
+
+<div class="footer-brand">
+
+<div class="brand-mark">
+WFY
+</div>
+
+<div class="brand-copy">
+
+<span>
+WEBSITE
+</span>
+
+<span>
+FOR YOU
+</span>
+
+</div>
+
+</div>
+
+
+<div class="footer-item">
+✉
+<span>
+hello@wfy.com
+</span>
+</div>
+
+
+<div class="footer-item">
+⌕
+<span>
++20 123 456 7890
+</span>
+</div>
+
+
+<div class="footer-item">
+⌖
+<span>
+Cairo, Egypt
+</span>
+</div>
+
+
+<div class="footer-item social">
+
+<span>
+◎
+</span>
+
+<span>
+in
+</span>
+
+<span>
+f
+</span>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+© 2026 WFY. All rights reserved.
+</div>
+
+
+</div>
+
+</footer>
+
+</section>
+
+
+
+<!-- =========================================================
+     PORTFOLIO PAGE
+========================================================= -->
+
+<section class="page" id="portfolio">
+
+
+<header class="header">
+
+<div class="header-inner">
+
+
+<div class="brand">
+
+<div class="brand-mark">
+WFY
+</div>
+
+<div class="brand-copy">
+
+<span>
+WEBSITE
+</span>
+
+<span>
+FOR YOU
+</span>
+
+</div>
+
+</div>
+
+
+<nav class="nav">
+
+<button
+data-page="home">
+Home
+</button>
+
+<button
+data-modal="services">
+Services
+</button>
+
+<button
+data-modal="process">
+Process
+</button>
+
+<button
+data-page="portfolio"
+class="active">
+Portfolio
+</button>
+
+<button
+data-modal="pricing">
+Pricing
+</button>
+
+<button
+data-modal="faq">
+FAQ
+</button>
+
+<button
+data-page="contact">
+Contact
+</button>
+
+</nav>
+
+
+<button
+class="header-cta"
+data-page="contact">
+
+Get Started
+
+</button>
+
+
+</div>
+
+</header>
+
+
+<main class="portfolio">
+
+
+<div class="container">
+
+
+<!-- TOP -->
+
+<div class="portfolio-top">
+
+
+<div>
+
+<div class="eyebrow">
+SELECTED PROJECTS
+</div>
+
+
+<h1>
+OUR WORK
+<br>
+SPEAKS FOR ITSELF.
+</h1>
+
+
+<p>
+Explore a selection of websites we’ve
+designed and developed for amazing
+brands and businesses.
+</p>
+
+</div>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+
+<div class="stat">
+
+<div class="stat-icon">
+◎
+</div>
+
+<strong>
+50+
+</strong>
+
+<span>
+Websites Delivered
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+☺
+</div>
+
+<strong>
+40+
+</strong>
+
+<span>
+Happy Clients
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+♢
+</div>
+
+<strong>
+100%
+</strong>
+
+<span>
+Client Satisfaction
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+ϟ
+</div>
+
+<strong>
+Fast
+</strong>
+
+<span>
+On-Time Delivery
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- FILTERS -->
+
+<div class="filters">
+
+
+<button
+class="filter active"
+data-filter="all">
+
+All Projects
+
+</button>
+
+
+<button
+class="filter"
+data-filter="business">
+
+Business
+
+</button>
+
+
+<button
+class="filter"
+data-filter="ecommerce">
+
+E-Commerce
+
+</button>
+
+
+<button
+class="filter"
+data-filter="portfolio">
+
+Portfolio
+
+</button>
+
+
+<button
+class="filter"
+data-filter="landing">
+
+Landing Pages
+
+</button>
+
+
+<button
+class="filter"
+data-filter="other">
+
+Other
+
+</button>
+
+
+<select class="sort">
+
+<option>
+Newest First
+</option>
+
+<option>
+Oldest First
+</option>
+
+</select>
+
+
+</div>
+
+
+<!-- PROJECTS -->
+
+<div
+class="portfolio-grid"
+id="projects">
+
+
+<!-- 1 -->
+
+<article
+class="project"
+data-category="business">
+
+<div
+class="project-preview preview-law">
+
+<div class="preview-text">
+
+Legal Solutions
+<br>
+You Can Trust
+
+<small>
+LAW FIRM WEBSITE
+</small>
+
+</div>
+
+</div>
+
+
+<div class="project-body">
+
+<h3>
+Lexora Law Firm
+</h3>
+
+<p>
+Business
+
+<button
+type="button"
+class="project-arrow"
+aria-label="View Lexora Law Firm project details"
+data-title="Lexora Law Firm"
+data-category="Business"
+data-desc="A professional law firm website built to establish trust, showcase practice areas and make it simple for clients to book a consultation.">
+↗
+</button>
+
+</p>
+
+</div>
+
+</article>
+
+
+<!-- 2 -->
+
+<article
+class="project"
+data-category="business">
+
+<div
+class="project-preview preview-space">
+
+<div class="preview-text">
+
+Designing Spaces
+<br>
+That Inspire.
+
+<small>
+INTERIOR DESIGN
+</small>
+
+</div>
+
+</div>
+
+
+<div class="project-body">
+
+<h3>
+ArchiSpace
+</h3>
+
+<p>
+Business
+
+<button
+type="button"
+class="project-arrow"
+aria-label="View ArchiSpace project details"
+data-title="ArchiSpace"
+data-category="Business"
+data-desc="An interior design portfolio site with a clean gallery layout that lets the studio's work speak for itself.">
+↗
+</button>
+
+</p>
+
+</div>
+
+</article>
+
+
+<!-- 3 -->
+
+<article
+class="project"
+data-category="business">
+
+<div
+class="project-preview preview-gym">
+
+<div class="preview-text">
+
+Train Hard.
+<br>
+Stay Strong.
+
+<small>
+FITNESS WEBSITE
+</small>
+
+</div>
+
+</div>
+
+
+<div class="project-body">
+
+<h3>
+Peak Performance
+</h3>
+
+<p>
+Business
+
+<button
+type="button"
+class="project-arrow"
+aria-label="View Peak Performance project details"
+data-title="Peak Performance"
+data-category="Business"
+data-desc="A high-energy fitness website with class schedules, trainer profiles and a straightforward membership signup flow.">
+↗
+</button>
+
+</p>
+
+</div>
+
+</article>
+
+
+<!-- 4 -->
+
+<article
+class="project"
+data-category="ecommerce">
+
+<div
+class="project-preview preview-beauty">
+
+<div class="preview-text">
+
+Natural Beauty.
+<br>
+Real You.
+
+<small>
+SKINCARE STORE
+</small>
+
+</div>
+
+</div>
+
+
+<div class="project-body">
+
+<h3>
+Glow Skincare
+</h3>
+
+<p>
+E-Commerce
+
+<button
+type="button"
+class="project-arrow"
+aria-label="View Glow Skincare project details"
+data-title="Glow Skincare"
+data-category="E-Commerce"
+data-desc="A skincare storefront with product filtering, a smooth checkout experience and content built around ingredient transparency.">
+↗
+</button>
+
+</p>
+
+</div>
+
+</article>
+
+
+<!-- 5 -->
+
+<article
+class="project"
+data-category="ecommerce">
+
+<div
+class="project-preview preview-fashion">
+
+<div class="preview-text">
+
+Timeless Fashion.
+<br>
+Modern Style.
+
+<small>
+FASHION STORE
+</small>
+
+</div>
+
+</div>
+
+
+<div class="project-body">
+
+<h3>
+Vellure Fashion
+</h3>
+
+<p>
+E-Commerce
+
+<button
+type="button"
+class="project-arrow"
+aria-label="View Vellure Fashion project details"
+data-title="Vellure Fashion"
+data-category="E-Commerce"
+data-desc="A fashion e-commerce site with lookbook-style category pages and a mobile-first shopping experience.">
+↗
+</button>
+
+</p>
+
+</div>
+
+</article>
+
+
+<!-- 6 -->
+
+<article
+class="project"
+data-category="business">
+
+<div
+class="project-preview preview-food">
+
+<div class="preview-text">
+
+Delicious Food.
+<br>
+Great Experience.
+
+<small>
+RESTAURANT
+</small>
+
+</div>
+
+</div>
+
+
+<div class="project-body">
+
+<h3>
+Bistro House
+</h3>
+
+<p>
+Business
+
+<button
+type="button"
+class="project-arrow"
+aria-label="View Bistro House project details"
+data-title="Bistro House"
+data-category="Business"
+data-desc="A restaurant website with an online menu, table reservations and a photo gallery that showcases the dining experience.">
+↗
+</button>
+
+</p>
+
+</div>
+
+</article>
+
+
+<!-- 7 -->
+
+<article
+class="project"
+data-category="portfolio">
+
+<div
+class="project-preview preview-digital">
+
+<div class="preview-text">
+
+We Build Digital
+<br>
+Experiences.
+
+<small>
+CREATIVE STUDIO
+</small>
+
+</div>
+
+</div>
+
+
+<div class="project-body">
+
+<h3>
+Nexora Studio
+</h3>
+
+<p>
+Portfolio
+
+<button
+type="button"
+class="project-arrow"
+aria-label="View Nexora Studio project details"
+data-title="Nexora Studio"
+data-category="Portfolio"
+data-desc="A bold portfolio site for a creative studio, built to showcase case studies and drive new client inquiries.">
+↗
+</button>
+
+</p>
+
+</div>
+
+</article>
+
+
+<!-- 8 -->
+
+<article
+class="project"
+data-category="other">
+
+<div
+class="project-preview preview-travel">
+
+<div class="preview-text">
+
+Explore. Dream.
+<br>
+Discover.
+
+<small>
+TRAVEL WEBSITE
+</small>
+
+</div>
+
+</div>
+
+
+<div class="project-body">
+
+<h3>
+Wanderlust
+</h3>
+
+<p>
+Other
+
+<button
+type="button"
+class="project-arrow"
+aria-label="View Wanderlust project details"
+data-title="Wanderlust"
+data-category="Other"
+data-desc="A travel inspiration website with destination guides, an itinerary builder and a clean, image-forward layout.">
+↗
+</button>
+
+</p>
+
+</div>
+
+</article>
+
+
+</div>
+
+
+<!-- CTA -->
+
+<div class="portfolio-cta">
+
+
+<div>
+
+<h3>
+Like what you see?
+</h3>
+
+<p>
+Let’s build something amazing
+for your business.
+</p>
+
+</div>
+
+
+<button
+class="btn primary"
+data-page="contact">
+
+Start Your Project
+
+<span>
+→
+</span>
+
+</button>
+
+
+</div>
+
+
+</div>
+
+</main>
+
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="footer-main">
+
+
+<div class="footer-brand">
+
+<div class="brand-mark">
+WFY
+</div>
+
+<div class="brand-copy">
+
+<span>
+WEBSITE
+</span>
+
+<span>
+FOR YOU
+</span>
+
+</div>
+
+</div>
+
+
+<div class="footer-item">
+
+✉
+
+<span>
+hello@wfy.com
+</span>
+
+</div>
+
+
+<div class="footer-item">
+
+⌕
+
+<span>
++20 123 456 7890
+</span>
+
+</div>
+
+
+<div class="footer-item">
+
+⌖
+
+<span>
+Cairo, Egypt
+</span>
+
+</div>
+
+
+<div class="footer-item social">
+
+<span>
+◎
+</span>
+
+<span>
+in
+</span>
+
+<span>
+f
+</span>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+© 2026 WFY. All rights reserved.
+</div>
+
+
+</div>
+
+</footer>
+
+</section>
+
+</div>
+
+
+
+<!-- =========================================================
+     MODAL
+========================================================= -->
+
+<div
+class="overlay"
+id="overlay">
+</div>
+
+
+<div
+class="modal"
+id="modal"
+role="dialog"
+aria-modal="true"
+aria-hidden="true">
+
+
+<button
+class="modal-close"
+id="modalClose">
+
+×
+
+</button>
+
+
+<h2 id="modalTitle"></h2>
+
+<div id="modalContent"></div>
+
+
+</div>
+
+
+<div
+class="toast"
+id="toast">
+</div>
+
+
+
+<script>
+
+(() => {
+
+"use strict";
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const pages =
+[
+  ...document.querySelectorAll(".page")
+];
+
+const overlay =
+document.getElementById("overlay");
+
+const modal =
+document.getElementById("modal");
+
+const modalTitle =
+document.getElementById("modalTitle");
+
+const modalContent =
+document.getElementById("modalContent");
+
+const modalClose =
+document.getElementById("modalClose");
+
+const toast =
+document.getElementById("toast");
+
+let toastTimer;
+
+
+
+/* =========================================================
+   PAGE NAVIGATION
+========================================================= */
+
+function showPage(id){
+
+  const target =
+  document.getElementById(id);
+
+  if(!target) return;
+
+
+  pages.forEach(page => {
+
+    page.classList.toggle(
+      "active",
+      page === target
+    );
+
+  });
+
+
+  document
+  .querySelectorAll(
+    ".nav [data-page]"
+  )
+  .forEach(button => {
+
+    button.classList.toggle(
+      "active",
+      button.dataset.page === id
+    );
+
+  });
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+
+  history.replaceState(
+    null,
+    "",
+    "#" + id
+  );
+
+}
+
+
+
+/* =========================================================
+   MODAL DATA
+========================================================= */
+
+const modalData = {
+
+services:
+
+[
+"OUR SERVICES",
+
+`
+
+<div class="modal-grid">
+
+<div class="modal-card">
+
+<h3>
+◎ Custom Websites
+</h3>
+
+<p>
+Modern websites designed specifically
+around your brand and goals.
+</p>
+
+</div>
+
+
+<div class="modal-card">
+
+<h3>
+🛒 E-Commerce
+</h3>
+
+<p>
+Online stores designed to help you
+sell products and services.
+</p>
+
+</div>
+
+
+<div class="modal-card">
+
+<h3>
+▣ Responsive Design
+</h3>
+
+<p>
+Websites that work beautifully on
+phones, tablets and computers.
+</p>
+
+</div>
+
+
+<div class="modal-card">
+
+<h3>
+⚙ Website Maintenance
+</h3>
+
+<p>
+Keep your website secure, updated
+and running smoothly.
+</p>
+
+</div>
+
+</div>
+
+`
+
+],
+
+
+process:
+
+[
+"OUR PROCESS",
+
+`
+
+<div class="modal-grid">
+
+<div class="modal-card">
+
+<h3>
+01 — Discuss
+</h3>
+
+<p>
+We learn about your business,
+goals and requirements.
+</p>
+
+</div>
+
+
+<div class="modal-card">
+
+<h3>
+02 — Plan
+</h3>
+
+<p>
+We plan the structure,
+design and features.
+</p>
+
+</div>
+
+
+<div class="modal-card">
+
+<h3>
+03 — Develop
+</h3>
+
+<p>
+We build your website
+using clean, modern code.
+</p>
+
+</div>
+
+
+<div class="modal-card">
+
+<h3>
+04 — Launch
+</h3>
+
+<p>
+We test everything and
+get your website online.
+</p>
+
+</div>
+
+</div>
+
+`
+
+],
+
+
+pricing:
+
+[
+"WEBSITE PRICING",
+
+`
+
+<p>
+Every website is different, so we
+create pricing based on your requirements.
+</p>
+
+
+<div class="modal-grid">
+
+<div class="modal-card">
+
+<h3>
+Starter
+</h3>
+
+<p>
+Perfect for simple business
+websites and landing pages.
+</p>
+
+</div>
+
+
+<div class="modal-card">
+
+<h3>
+Business
+</h3>
+
+<p>
+More pages, custom features
+and advanced functionality.
+</p>
+
+</div>
+
+
+<div class="modal-card">
+
+<h3>
+E-Commerce
+</h3>
+
+<p>
+Complete online stores with
+products, checkout and management.
+</p>
+
+</div>
+
+
+<div class="modal-card">
+
+<h3>
+Custom
+</h3>
+
+<p>
+A completely custom solution
+built around your business.
+</p>
+
+</div>
+
+</div>
+
+`
+
+],
+
+
+faq:
+
+[
+"FREQUENTLY ASKED QUESTIONS",
+
+`
+
+<div class="modal-grid">
+
+<div class="modal-card">
+
+<h3>
+Project Time
+</h3>
+
+<p>
+Most websites take a few days
+to a few weeks depending on scope.
+</p>
+
+</div>
+
+
+<div class="modal-card">
+
+<h3>
+Requirements
+</h3>
+
+<p>
+We need your business information,
+content, images and goals.
+</p>
+
+</div>
+
+
+<div class="modal-card">
+
+<h3>
+Updates
+</h3>
+
+<p>
+Yes. We can build the site so
+you can update content yourself.
+</p>
+
+</div>
+
+
+<div class="modal-card">
+
+<h3>
+Maintenance
+</h3>
+
+<p>
+Yes. We can provide ongoing
+maintenance and improvements.
+</p>
+
+</div>
+
+</div>
+
+`
+
+]
+
+};
+
+
+
+/* =========================================================
+   OPEN MODAL
+========================================================= */
+
+function openModal(
+title,
+content
+){
+
+  modalTitle.textContent =
+  title;
+
+  modalContent.innerHTML =
+  content;
+
+
+  overlay.classList.add(
+    "show"
+  );
+
+  modal.classList.add(
+    "show"
+  );
+
+  modal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+
+  document.body.style.overflow =
+  "hidden";
+
+
+  modalClose.focus();
+
+}
+
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeModal(){
+
+  overlay.classList.remove(
+    "show"
+  );
+
+  modal.classList.remove(
+    "show"
+  );
+
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+
+  document.body.style.overflow =
+  "";
+
+}
+
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(text){
+
+  toast.textContent =
+  text;
+
+  toast.classList.add(
+    "show"
+  );
+
+
+  clearTimeout(
+    toastTimer
+  );
+
+
+  toastTimer =
+  setTimeout(() => {
+
+    toast.classList.remove(
+      "show"
+    );
+
+  },2800);
+
+}
+
+
+
+/* =========================================================
+   GLOBAL CLICK HANDLER
+========================================================= */
+
+document.addEventListener(
+"click",
+e => {
+
+
+  /* PAGE BUTTON */
+
+  const pageButton =
+  e.target.closest(
+    "[data-page]"
+  );
+
+
+  if(pageButton){
+
+    showPage(
+      pageButton.dataset.page
+    );
+
+    return;
+
+  }
+
+
+
+  /* MODAL BUTTON */
+
+  const modalButton =
+  e.target.closest(
+    "[data-modal]"
+  );
+
+
+  if(modalButton){
+
+    const data =
+    modalData[
+      modalButton.dataset.modal
+    ];
+
+
+    if(data){
+
+      openModal(
+        data[0],
+        data[1]
+      );
+
+    }
+
+
+    return;
+
+  }
+
+
+
+  /* FAQ */
+
+  const faq =
+  e.target.closest(
+    ".faq"
+  );
+
+
+  if(faq){
+
+    openModal(
+      faq.dataset.faq,
+      `<p>${faq.dataset.answer}</p>`
+    );
+
+    return;
+
+  }
+
+
+
+  /* PROJECT DETAILS */
+
+  const projectButton =
+  e.target.closest(
+    ".project-arrow"
+  );
+
+
+  if(projectButton){
+
+    openModal(
+
+      projectButton.dataset.title,
+
+      `
+
+      <p style="color:#fff;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">
+      ${projectButton.dataset.category}
+      </p>
+
+      <p>
+      ${projectButton.dataset.desc}
+      </p>
+
+      `
+
+    );
+
+    return;
+
+  }
+
+
+
+  /* PORTFOLIO FILTER */
+
+  const filter =
+  e.target.closest(
+    ".filter"
+  );
+
+
+  if(filter){
+
+    document
+    .querySelectorAll(
+      ".filter"
+    )
+    .forEach(button => {
+
+      button.classList.remove(
+        "active"
+      );
+
+    });
+
+
+    filter.classList.add(
+      "active"
+    );
+
+
+    const wanted =
+    filter.dataset.filter;
+
+
+    document
+    .querySelectorAll(
+      ".project"
+    )
+    .forEach(project => {
+
+      project.style.display =
+        (
+          wanted === "all" ||
+          project.dataset.category === wanted
+        )
+        ? "block"
+        : "none";
+
+    });
+
+  }
+
+});
+
+
+
+/* =========================================================
+   MODAL CONTROLS
+========================================================= */
+
+modalClose.addEventListener(
+"click",
+closeModal
+);
+
+overlay.addEventListener(
+"click",
+closeModal
+);
+
+
+document.addEventListener(
+"keydown",
+e => {
+
+  if(
+    e.key === "Escape" &&
+    modal.classList.contains("show")
+  ){
+
+    closeModal();
+
+  }
+
+});
+
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+const CONTACT_EMAIL =
+"malik.74845636@gmail.com";
+
+const FORMSUBMIT_ENDPOINT =
+`https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
+
+
+document
+.getElementById("projectForm")
+.addEventListener(
+"submit",
+async e => {
+
+  e.preventDefault();
+
+
+  const form =
+  e.currentTarget;
+
+
+  if(!form.checkValidity()){
+
+    form.reportValidity();
+
+    return;
+
+  }
+
+
+  const data =
+  new FormData(form);
+
+
+  data.set(
+    "_subject",
+    "New WFY Website Project Request"
+  );
+
+  data.set(
+    "_template",
+    "table"
+  );
+
+  data.set(
+    "_captcha",
+    "false"
+  );
+
+
+  const submitBtn =
+  form.querySelector(".send");
+
+  const originalLabel =
+  submitBtn.innerHTML;
+
+  submitBtn.disabled =
+  true;
+
+  submitBtn.innerHTML =
+  "Sending…";
+
+
+  try{
+
+    const res =
+    await fetch(
+      FORMSUBMIT_ENDPOINT,
+      {
+        method:"POST",
+        headers:{
+          "Accept":"application/json"
+        },
+        body:data
+      }
+    );
+
+
+    if(!res.ok){
+
+      throw new Error(
+        "Request failed"
+      );
+
+    }
+
+
+    openModal(
+
+      "MESSAGE SENT",
+
+      `
+      <p>
+      Thanks — your project details
+      have been sent. We'll get back
+      to you within 24 hours.
+      </p>
+      `
+
+    );
+
+
+    form.reset();
+
+  }
+
+  catch{
+
+    openModal(
+
+      "SOMETHING WENT WRONG",
+
+      `
+      <p>
+      We couldn't send your message
+      right now. Please try again,
+      or email us directly at
+      ${CONTACT_EMAIL}.
+      </p>
+      `
+
+    );
+
+  }
+
+  finally{
+
+    submitBtn.disabled =
+    false;
+
+    submitBtn.innerHTML =
+    originalLabel;
+
+  }
+
+});
+
+
+
+/* =========================================================
+   HASH NAVIGATION
+========================================================= */
+
+function loadHash(){
+
+  const id =
+  location.hash.slice(1);
+
+
+  if(
+    document.getElementById(id)
+  ){
+
+    showPage(id);
+
+  }
+
+  else{
+
+    showPage("home");
+
+  }
+
+}
+
+
+window.addEventListener(
+"popstate",
+loadHash
+);
+
+
+loadHash();
+
+
+})();
+
+</script>
+
+</body>
+</html>
