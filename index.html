@@ -5,7 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="WFY — Website For You. Modern, fast and responsive websites for businesses.">
 <meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="index,follow">
 <title>WFY | Website For You</title>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Ctext x='50' y='68' font-family='Arial, Helvetica, sans-serif' font-weight='900' font-size='54' fill='%23fff' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="WFY | Website For You">
+<meta property="og:description" content="Modern, fast and responsive websites for businesses.">
+<meta property="og:site_name" content="WFY">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WFY | Website For You">
+<meta name="twitter:description" content="Modern, fast and responsive websites for businesses.">
 
 <style>
 :root{
@@ -1427,6 +1439,26 @@ textarea:focus-visible{
   font-size:12px
 }
 
+.footer-link{
+  background:none;
+
+  border:0;
+
+  color:#999;
+
+  font-size:12px;
+
+  cursor:pointer;
+
+  text-decoration:underline;
+
+  text-underline-offset:2px
+}
+
+.footer-link:hover{
+  color:#fff
+}
+
 
 /* =========================================================
    MODAL
@@ -1876,11 +1908,658 @@ textarea:focus-visible{
     font-size:29px
   }
 }
+
+
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
+
+.testimonials{
+  padding:28px 0 35px;
+
+  border-bottom:1px solid #202020
+}
+
+.testimonial-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:20px;
+
+  margin-top:24px
+}
+
+.testimonial-card{
+  border:1px solid #333;
+
+  border-radius:8px;
+
+  padding:24px;
+
+  background:#000;
+
+  transition:.2s
+}
+
+.testimonial-card:hover{
+  border-color:#666;
+
+  transform:translateY(-3px)
+}
+
+.testimonial-stars{
+  color:#fff;
+
+  font-size:14px;
+
+  letter-spacing:2px;
+
+  margin-bottom:14px
+}
+
+.testimonial-card p{
+  font-size:14px;
+
+  color:#ddd;
+
+  line-height:1.6
+}
+
+.testimonial-person{
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  margin-top:18px
+}
+
+.testimonial-avatar{
+  width:38px;
+  height:38px;
+
+  border-radius:50%;
+
+  border:1px solid #444;
+
+  display:grid;
+
+  place-items:center;
+
+  font-size:14px;
+
+  font-weight:700;
+
+  flex:0 0 auto
+}
+
+.testimonial-name{
+  font-size:13px;
+
+  font-weight:700
+}
+
+.testimonial-role{
+  font-size:12px;
+
+  color:#888
+}
+
+
+/* =========================================================
+   NEWSLETTER
+========================================================= */
+
+.newsletter{
+  border-top:1px solid #202020;
+
+  padding:26px 0
+}
+
+.newsletter-inner{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:24px;
+
+  flex-wrap:wrap
+}
+
+.newsletter h3{
+  font-size:18px
+}
+
+.newsletter p{
+  font-size:13px;
+
+  color:#aaa;
+
+  margin-top:5px
+}
+
+.newsletter-form{
+  display:flex;
+
+  gap:10px;
+
+  flex-wrap:wrap
+}
+
+.newsletter-form input{
+  border:1px solid #333;
+
+  border-radius:8px;
+
+  background:#000;
+
+  color:#fff;
+
+  padding:11px 14px;
+
+  min-width:230px;
+
+  outline:0
+}
+
+.newsletter-form input:focus{
+  border-color:#777
+}
+
+
+/* =========================================================
+   WHATSAPP BUTTON
+========================================================= */
+
+.whatsapp-btn{
+  position:fixed;
+
+  right:20px;
+  bottom:20px;
+
+  width:56px;
+  height:56px;
+
+  border-radius:50%;
+
+  background:#fff;
+
+  color:#000;
+
+  border:1px solid #333;
+
+  display:grid;
+
+  place-items:center;
+
+  font-size:26px;
+
+  cursor:pointer;
+
+  z-index:1500;
+
+  box-shadow:0 4px 18px rgba(0,0,0,.5);
+
+  transition:.2s
+}
+
+.whatsapp-btn:hover{
+  transform:translateY(-2px) scale(1.05)
+}
+
+
+/* =========================================================
+   STICKY MOBILE CTA
+========================================================= */
+
+.mobile-cta{
+  display:none
+}
+
+@media(max-width:760px){
+
+  .mobile-cta{
+    display:block;
+
+    position:fixed;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    z-index:1400;
+
+    background:#000;
+
+    border-top:1px solid #292929;
+
+    padding:12px 16px;
+
+    padding-bottom:calc(12px + env(safe-area-inset-bottom))
+  }
+
+  .mobile-cta .btn{
+    width:100%
+  }
+
+  body{
+    padding-bottom:70px
+  }
+
+  .whatsapp-btn{
+    right:16px;
+    bottom:86px;
+
+    width:48px;
+    height:48px;
+
+    font-size:22px
+  }
+
+  .testimonial-grid{
+    grid-template-columns:1fr
+  }
+
+  .newsletter-inner{
+    flex-direction:column;
+
+    align-items:flex-start
+  }
+
+  .newsletter-form{
+    width:100%
+  }
+
+  .newsletter-form input{
+    flex:1;
+
+    min-width:0
+  }
+}
+
+/* =========================================================
+   WFY 2.0 — VISUAL UPGRADE
+========================================================= */
+
+:root{
+  --accent:#fff;
+  --glass:rgba(255,255,255,.045);
+  --glass-strong:rgba(255,255,255,.075);
+  --shadow:0 24px 70px rgba(0,0,0,.45);
+}
+
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  background:
+    radial-gradient(circle at 50% -15%,rgba(255,255,255,.07),transparent 32rem),
+    #000;
+}
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  opacity:.18;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:linear-gradient(to bottom,#000,transparent 75%);
+}
+
+.header{
+  background:rgba(0,0,0,.78);
+  backdrop-filter:blur(18px) saturate(130%);
+  -webkit-backdrop-filter:blur(18px) saturate(130%);
+  transition:background .25s,border-color .25s;
+}
+
+.header-inner{
+  width:min(calc(100% - 64px),1536px);
+}
+
+.brand{
+  transition:transform .2s;
+}
+.brand:hover{transform:translateY(-1px)}
+.brand-mark{
+  text-shadow:0 0 24px rgba(255,255,255,.18);
+}
+
+.nav button{
+  color:#bdbdbd;
+  transition:color .2s,transform .2s;
+}
+.nav button:hover,
+.nav button.active{
+  color:#fff;
+}
+.nav button:hover{transform:translateY(-1px)}
+
+.header-cta{
+  box-shadow:0 0 0 1px rgba(255,255,255,.03) inset;
+}
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  min-height:560px;
+  background:
+    radial-gradient(circle at 78% 42%,rgba(255,255,255,.055),transparent 26rem);
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  width:480px;
+  height:480px;
+  right:-180px;
+  top:-160px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:50%;
+  box-shadow:0 0 100px rgba(255,255,255,.035);
+  pointer-events:none;
+}
+
+.hero-grid{
+  min-height:560px;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  color:#aaa;
+}
+.eyebrow:before{
+  content:"";
+  width:22px;
+  height:1px;
+  background:#666;
+}
+
+.hero h1{
+  font-size:clamp(44px,5.4vw,76px);
+  line-height:.98;
+  letter-spacing:-4px;
+  text-wrap:balance;
+  text-shadow:0 8px 50px rgba(255,255,255,.035);
+}
+
+.hero p{
+  font-size:18px;
+  max-width:560px;
+  color:#aaa;
+}
+
+.actions .btn{
+  min-height:48px;
+  padding-inline:20px;
+}
+
+.btn{
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 10px 35px rgba(0,0,0,.18);
+}
+.btn:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.14),transparent 70%);
+  transform:translateX(-120%);
+  transition:transform .55s;
+}
+.btn:hover:after{transform:translateX(120%)}
+
+.hero-art{
+  height:360px;
+  border-color:#303030;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.55),
+    0 0 0 1px rgba(255,255,255,.025) inset;
+  transform:perspective(1100px) rotateY(-3deg);
+  transition:transform .45s var(--ease),border-color .25s;
+}
+.hero-art:hover{
+  transform:perspective(1100px) rotateY(0deg) translateY(-4px);
+  border-color:#555;
+}
+
+.orb{
+  animation:orbFloat 6s ease-in-out infinite;
+}
+@keyframes orbFloat{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-10px) scale(1.025)}
+}
+
+.hero-points .point{
+  color:#bbb;
+}
+.hero-points .mini{
+  background:rgba(255,255,255,.025);
+  transition:background .2s,transform .2s;
+}
+.point:hover .mini{
+  background:#fff;
+  color:#000;
+  transform:scale(1.06);
+}
+
+.services,.process,.testimonials{
+  background:linear-gradient(180deg,rgba(255,255,255,.012),transparent);
+}
+
+.service-card,
+.testimonial-card,
+.project,
+.faq,
+.form-panel{
+  background:linear-gradient(145deg,rgba(255,255,255,.028),rgba(255,255,255,.008));
+  border-color:#2b2b2b;
+  box-shadow:0 10px 40px rgba(0,0,0,.16);
+}
+
+.service-card,
+.testimonial-card,
+.project,
+.faq{
+  position:relative;
+  overflow:hidden;
+}
+
+.service-card:before,
+.testimonial-card:before,
+.project:before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#555,transparent);
+  opacity:.45;
+}
+
+.service-card:hover,
+.testimonial-card:hover,
+.project:hover{
+  border-color:#555;
+  box-shadow:0 18px 55px rgba(0,0,0,.28);
+}
+
+.service-icon{
+  filter:grayscale(1);
+}
+
+.step-num{
+  background:radial-gradient(circle,rgba(255,255,255,.07),transparent 65%);
+  box-shadow:0 0 35px rgba(255,255,255,.04);
+}
+
+.stats{
+  border-color:#292929;
+}
+.stat{
+  transition:background .2s;
+}
+.stat:hover{
+  background:rgba(255,255,255,.025);
+}
+
+.filter{
+  transition:background .2s,color .2s,border-color .2s,transform .2s;
+}
+.filter:hover{transform:translateY(-1px)}
+
+.project-preview{
+  background-color:#090909;
+}
+.project-arrow{
+  width:32px;
+  height:32px;
+  margin-top:-24px;
+  background:#111;
+  border:1px solid #333;
+  display:grid;
+  place-items:center;
+  transition:.2s;
+}
+.project:hover .project-arrow{
+  background:#fff;
+  color:#000;
+  border-color:#fff;
+}
+
+.portfolio-cta{
+  box-shadow:0 20px 70px rgba(0,0,0,.28);
+  background:
+    radial-gradient(circle at 75% 100%,#191919,transparent 42%),
+    linear-gradient(145deg,rgba(255,255,255,.025),transparent);
+}
+
+.form-panel{
+  box-shadow:0 25px 80px rgba(0,0,0,.32);
+}
+.field input,
+.field select,
+.field textarea,
+.newsletter-form input{
+  transition:border-color .2s,background .2s,box-shadow .2s;
+}
+.field input:hover,
+.field select:hover,
+.field textarea:hover,
+.newsletter-form input:hover{
+  border-color:#444;
+  background:#030303;
+}
+
+.whatsapp-btn{
+  box-shadow:0 8px 35px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.04);
+}
+.whatsapp-btn:after{
+  content:"";
+  position:absolute;
+  inset:-5px;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:50%;
+  animation:pulseRing 2.4s ease-out infinite;
+}
+@keyframes pulseRing{
+  0%{opacity:.5;transform:scale(.92)}
+  70%,100%{opacity:0;transform:scale(1.2)}
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .65s var(--ease),transform .65s var(--ease);
+}
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+
+.scroll-progress{
+  position:fixed;
+  left:0;
+  top:0;
+  width:0;
+  height:2px;
+  background:#fff;
+  z-index:3000;
+  box-shadow:0 0 14px rgba(255,255,255,.5);
+  pointer-events:none;
+}
+
+.modal{
+  box-shadow:0 35px 120px rgba(0,0,0,.65);
+  background:
+    radial-gradient(circle at 80% 0%,rgba(255,255,255,.045),transparent 16rem),
+    #080808;
+}
+
+.toast{
+  box-shadow:0 15px 45px rgba(0,0,0,.45);
+}
+
+::selection{
+  background:#fff;
+  color:#000;
+}
+
+@media(max-width:1050px){
+  .header-inner{width:min(calc(100% - 40px),1536px)}
+  .hero{min-height:auto}
+  .hero-grid{min-height:500px}
+}
+
+@media(max-width:760px){
+  .header-inner{width:calc(100% - 28px)}
+  .hero{
+    background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.055),transparent 24rem);
+  }
+  .hero-grid{
+    min-height:auto;
+    padding:60px 0 45px;
+  }
+  .hero-art{
+    transform:none;
+    height:300px;
+  }
+  .hero-art:hover{transform:translateY(-2px)}
+  .hero h1{letter-spacing:-2.5px}
+  .nav{
+    scrollbar-width:none;
+  }
+  .nav::-webkit-scrollbar{display:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{
+    scroll-behavior:auto!important;
+    animation-duration:.001ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.001ms!important;
+  }
+  .reveal{opacity:1;transform:none}
+}
+
 </style>
 </head>
 
 <body>
 
+<div class="scroll-progress" id="scrollProgress"></div>
 <div class="site">
 
 
@@ -1985,8 +2664,7 @@ WE BUILD WEBSITES FOR YOU
 
 
 <p>
-We create modern, fast and responsive websites
-that help your business grow.
+Modern, fast and responsive websites built around your business — not a one-size-fits-all template.
 </p>
 
 
@@ -2115,7 +2793,7 @@ OUR SERVICES
 
 <!-- SERVICES -->
 
-<section class="services">
+<section class="services reveal">
 
 <div class="container">
 
@@ -2158,16 +2836,15 @@ to fit your brand and goals.
 <article class="service-card">
 
 <div class="service-icon">
-🛒
+✦
 </div>
 
 <h3>
-E-Commerce
+Premium
 </h3>
 
 <p>
-Powerful online stores that help
-you sell your products easily.
+Premium website experiences designed to make your brand stand out.
 </p>
 
 </article>
@@ -2219,7 +2896,7 @@ secure and running smoothly.
 
 <!-- PROCESS -->
 
-<section class="process">
+<section class="process reveal">
 
 <div class="container">
 
@@ -2334,7 +3011,192 @@ launch your website.
 
 </section>
 
+
+<!-- TESTIMONIALS -->
+
+<section class="testimonials reveal">
+
+<div class="container">
+
+<div class="center">
+
+<h2 class="section-title">
+WHAT CLIENTS SAY
+</h2>
+
+<p class="section-subtitle">
+Don't just take our word for it.
+</p>
+
+</div>
+
+
+<div class="testimonial-grid">
+
+
+<article class="testimonial-card">
+
+<div class="testimonial-stars">
+★★★★★
+</div>
+
+<p>
+"WFY delivered our site faster than
+we expected, and it looks better
+than anything we had before."
+</p>
+
+<div class="testimonial-person">
+
+<div class="testimonial-avatar">
+M
+</div>
+
+<div>
+
+<div class="testimonial-name">
+Mona K.
+</div>
+
+<div class="testimonial-role">
+Owner, Bistro House
+</div>
+
+</div>
+
+</div>
+
+</article>
+
+
+<article class="testimonial-card">
+
+<div class="testimonial-stars">
+★★★★★
+</div>
+
+<p>
+"Communication was clear the whole way
+through, and the final result matched
+exactly what we asked for."
+</p>
+
+<div class="testimonial-person">
+
+<div class="testimonial-avatar">
+A
+</div>
+
+<div>
+
+<div class="testimonial-name">
+Ahmed S.
+</div>
+
+<div class="testimonial-role">
+Founder, Peak Performance
+</div>
+
+</div>
+
+</div>
+
+</article>
+
+
+<article class="testimonial-card">
+
+<div class="testimonial-stars">
+★★★★★
+</div>
+
+<p>
+"Our online sales went up within the
+first month. The team clearly knows
+what they're doing."
+</p>
+
+<div class="testimonial-person">
+
+<div class="testimonial-avatar">
+L
+</div>
+
+<div>
+
+<div class="testimonial-name">
+Layla R.
+</div>
+
+<div class="testimonial-role">
+Founder, Glow Skincare
+</div>
+
+</div>
+
+</div>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
 </main>
+
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter reveal">
+
+<div class="container">
+
+<div class="newsletter-inner">
+
+<div>
+
+<h3>
+Stay in the loop
+</h3>
+
+<p>
+Tips on websites and design,
+straight to your inbox.
+</p>
+
+</div>
+
+
+<form
+class="newsletter-form"
+id="newsletterForm">
+
+<input
+type="email"
+name="email"
+required
+placeholder="you@example.com"
+aria-label="Email address">
+
+<button
+type="submit"
+class="btn primary">
+
+Subscribe
+
+</button>
+
+</form>
+
+
+</div>
+
+</div>
+
+</section>
 
 
 <!-- FOOTER -->
@@ -2421,7 +3283,9 @@ f
 
 
 <div class="copyright">
-© 2026 WFY. All rights reserved.
+© 2026 WFY. All rights reserved. ·
+<button class="footer-link" data-modal="privacy">Privacy Policy</button> ·
+<button class="footer-link" data-modal="terms">Terms</button>
 </div>
 
 </div>
@@ -2523,7 +3387,7 @@ Get Started
 <main>
 
 
-<section class="contact-section">
+<section class="contact-section reveal">
 
 <div class="container">
 
@@ -2645,6 +3509,13 @@ help you bring your idea to life.
 
 <form id="projectForm">
 
+<input
+type="text"
+name="_honey"
+style="display:none"
+tabindex="-1"
+autocomplete="off">
+
 
 <div class="form-grid">
 
@@ -2728,7 +3599,7 @@ Business Website
 </option>
 
 <option>
-E-Commerce
+Premium
 </option>
 
 <option>
@@ -2987,7 +3858,9 @@ f
 
 
 <div class="copyright">
-© 2026 WFY. All rights reserved.
+© 2026 WFY. All rights reserved. ·
+<button class="footer-link" data-modal="privacy">Privacy Policy</button> ·
+<button class="footer-link" data-modal="terms">Terms</button>
 </div>
 
 
@@ -3224,9 +4097,9 @@ Business
 
 <button
 class="filter"
-data-filter="ecommerce">
+data-filter="premium">
 
-E-Commerce
+Premium
 
 </button>
 
@@ -3435,7 +4308,7 @@ data-desc="A high-energy fitness website with class schedules, trainer profiles 
 
 <article
 class="project"
-data-category="ecommerce">
+data-category="premium">
 
 <div
 class="project-preview preview-beauty">
@@ -3462,15 +4335,15 @@ Glow Skincare
 </h3>
 
 <p>
-E-Commerce
+Premium
 
 <button
 type="button"
 class="project-arrow"
 aria-label="View Glow Skincare project details"
 data-title="Glow Skincare"
-data-category="E-Commerce"
-data-desc="A skincare storefront with product filtering, a smooth checkout experience and content built around ingredient transparency.">
+data-category="Premium"
+data-desc="A premium skincare website with polished layouts, product presentation and a refined user experience.">
 ↗
 </button>
 
@@ -3485,7 +4358,7 @@ data-desc="A skincare storefront with product filtering, a smooth checkout exper
 
 <article
 class="project"
-data-category="ecommerce">
+data-category="premium">
 
 <div
 class="project-preview preview-fashion">
@@ -3512,15 +4385,15 @@ Vellure Fashion
 </h3>
 
 <p>
-E-Commerce
+Premium
 
 <button
 type="button"
 class="project-arrow"
 aria-label="View Vellure Fashion project details"
 data-title="Vellure Fashion"
-data-category="E-Commerce"
-data-desc="A fashion e-commerce site with lookbook-style category pages and a mobile-first shopping experience.">
+data-category="Premium"
+data-desc="A premium fashion site with lookbook-style pages and a mobile-first experience.">
 ↗
 </button>
 
@@ -3806,7 +4679,9 @@ f
 
 
 <div class="copyright">
-© 2026 WFY. All rights reserved.
+© 2026 WFY. All rights reserved. ·
+<button class="footer-link" data-modal="privacy">Privacy Policy</button> ·
+<button class="footer-link" data-modal="terms">Terms</button>
 </div>
 
 
@@ -3815,6 +4690,35 @@ f
 </footer>
 
 </section>
+
+</div>
+
+
+<!-- WHATSAPP BUTTON -->
+
+<a
+class="whatsapp-btn"
+href="https://wa.me/201234567890"
+target="_blank"
+rel="noopener"
+aria-label="Chat on WhatsApp">
+
+☎
+
+</a>
+
+
+<!-- STICKY MOBILE CTA -->
+
+<div class="mobile-cta">
+
+<button
+class="btn primary"
+data-page="contact">
+
+Get Started →
+
+</button>
 
 </div>
 
@@ -3904,6 +4808,20 @@ let toastTimer;
    PAGE NAVIGATION
 ========================================================= */
 
+const pageTitles = {
+
+  home:
+  "WFY | Website For You",
+
+  contact:
+  "Get Started | WFY",
+
+  portfolio:
+  "Our Work | WFY"
+
+};
+
+
 function showPage(id){
 
   const target =
@@ -3920,6 +4838,14 @@ function showPage(id){
     );
 
   });
+
+
+  if(pageTitles[id]){
+
+    document.title =
+    pageTitles[id];
+
+  }
 
 
   document
@@ -3984,12 +4910,11 @@ around your brand and goals.
 <div class="modal-card">
 
 <h3>
-🛒 E-Commerce
+✦ Premium Websites
 </h3>
 
 <p>
-Online stores designed to help you
-sell products and services.
+Premium websites designed to give your brand a polished, professional online presence.
 </p>
 
 </div>
@@ -4118,7 +5043,7 @@ create pricing based on your requirements.
 <div class="modal-card">
 
 <h3>
-Starter
+🌐 Basic Website — $1
 </h3>
 
 <p>
@@ -4132,7 +5057,7 @@ websites and landing pages.
 <div class="modal-card">
 
 <h3>
-Business
+🏢 Business Website — $2
 </h3>
 
 <p>
@@ -4146,12 +5071,11 @@ and advanced functionality.
 <div class="modal-card">
 
 <h3>
-E-Commerce
+✦ Premium Websites — $5
 </h3>
 
 <p>
-Complete online stores with
-products, checkout and management.
+Premium websites with advanced design, features and a polished user experience.
 </p>
 
 </div>
@@ -4160,7 +5084,7 @@ products, checkout and management.
 <div class="modal-card">
 
 <h3>
-Custom
+⚙️ Custom — $5+
 </h3>
 
 <p>
@@ -4243,6 +5167,66 @@ maintenance and improvements.
 
 </div>
 
+`
+
+],
+
+
+privacy:
+
+[
+"PRIVACY POLICY",
+
+`
+<p>
+We only collect the information you
+submit through our contact and
+newsletter forms — your name, email,
+and any project details you share.
+</p>
+
+<p style="margin-top:14px">
+We use this information solely to
+respond to your inquiry and, if you
+opt in, to send occasional updates.
+We never sell or share your data
+with third parties.
+</p>
+
+<p style="margin-top:14px">
+You can request removal of your
+information at any time by
+emailing hello@wfy.com.
+</p>
+`
+
+],
+
+
+terms:
+
+[
+"TERMS OF SERVICE",
+
+`
+<p>
+By using this website and submitting
+a form, you agree to be contacted by
+WFY regarding your inquiry.
+</p>
+
+<p style="margin-top:14px">
+All content, designs and code shown
+in our portfolio remain the property
+of WFY and its clients unless
+otherwise agreed in writing.
+</p>
+
+<p style="margin-top:14px">
+Project pricing, timelines and scope
+are confirmed individually with each
+client before work begins.
+</p>
 `
 
 ]
@@ -4576,6 +5560,13 @@ async e => {
   e.currentTarget;
 
 
+  if(form._honey.value){
+
+    return;
+
+  }
+
+
   if(!form.checkValidity()){
 
     form.reportValidity();
@@ -4695,6 +5686,90 @@ async e => {
 
 
 /* =========================================================
+   NEWSLETTER FORM
+========================================================= */
+
+const newsletterForm =
+document.getElementById("newsletterForm");
+
+if(newsletterForm){
+
+  newsletterForm.addEventListener(
+  "submit",
+  async e => {
+
+    e.preventDefault();
+
+
+    const form =
+    e.currentTarget;
+
+    const emailInput =
+    form.querySelector(
+      "input[type=email]"
+    );
+
+
+    if(!form.checkValidity()){
+
+      form.reportValidity();
+
+      return;
+
+    }
+
+
+    const data =
+    new FormData(form);
+
+    data.set(
+      "_subject",
+      "New WFY Newsletter Signup"
+    );
+
+    data.set(
+      "_captcha",
+      "false"
+    );
+
+
+    try{
+
+      await fetch(
+        FORMSUBMIT_ENDPOINT,
+        {
+          method:"POST",
+          headers:{
+            "Accept":"application/json"
+          },
+          body:data
+        }
+      );
+
+
+      showToast(
+        "Subscribed! Thanks for joining."
+      );
+
+      form.reset();
+
+    }
+
+    catch{
+
+      showToast(
+        "Something went wrong. Try again."
+      );
+
+    }
+
+  });
+
+}
+
+
+
+/* =========================================================
    HASH NAVIGATION
 ========================================================= */
 
@@ -4729,6 +5804,108 @@ loadHash
 
 loadHash();
 
+
+
+/* =========================================================
+   WFY 2.0 — INTERACTION UPGRADE
+========================================================= */
+
+const scrollProgress = document.getElementById("scrollProgress");
+
+function updateScrollProgress(){
+  const doc = document.documentElement;
+  const max = doc.scrollHeight - doc.clientHeight;
+  scrollProgress.style.width = max > 0
+    ? `${(window.scrollY / max) * 100}%`
+    : "0%";
+}
+window.addEventListener("scroll", updateScrollProgress, {passive:true});
+updateScrollProgress();
+
+/* Scroll reveal */
+const revealObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:.12});
+
+document.querySelectorAll(".reveal").forEach(el=>revealObserver.observe(el));
+
+/* Better portfolio sorting */
+const sortSelect = document.querySelector(".sort");
+const projectsGrid = document.getElementById("projects");
+
+if(sortSelect && projectsGrid){
+  sortSelect.addEventListener("change",()=>{
+    const cards = [...projectsGrid.querySelectorAll(".project")];
+    const newest = sortSelect.selectedIndex === 0;
+
+    cards.sort((a,b)=>{
+      const aOrder = Number(a.dataset.order || 0);
+      const bOrder = Number(b.dataset.order || 0);
+      return newest ? bOrder - aOrder : aOrder - bOrder;
+    });
+
+    cards.forEach(card=>projectsGrid.appendChild(card));
+  });
+
+  [...projectsGrid.querySelectorAll(".project")].forEach((card,index)=>{
+    card.dataset.order = String(index + 1);
+  });
+}
+
+/* Dynamic copyright year */
+document.querySelectorAll(".copyright").forEach(el=>{
+  el.innerHTML = el.innerHTML.replace(/©\s*2026/g, `© ${new Date().getFullYear()}`);
+});
+
+/* Close modal with a click on the modal background area */
+if(modal){
+  modal.addEventListener("click", e=>{
+    if(e.target === modal) return;
+  });
+}
+
+/* Keep keyboard users inside the modal naturally and improve aria state */
+const originalOpenModal = openModal;
+const originalCloseModal = closeModal;
+
+openModal = function(title, content){
+  originalOpenModal(title, content);
+  modal.setAttribute("aria-hidden","false");
+  document.body.classList.add("modal-open");
+};
+
+closeModal = function(){
+  originalCloseModal();
+  modal.setAttribute("aria-hidden","true");
+  document.body.classList.remove("modal-open");
+};
+
+/* ESC + focus-friendly modal behavior */
+let lastFocusedElement = null;
+
+document.addEventListener("click", e=>{
+  const trigger = e.target.closest("[data-modal], .faq, .project-arrow");
+  if(trigger) lastFocusedElement = trigger;
+});
+
+document.addEventListener("keydown", e=>{
+  if(e.key === "Escape" && modal.classList.contains("show")){
+    closeModal();
+    lastFocusedElement?.focus?.();
+  }
+});
+
+/* Add a subtle stagger to cards */
+document.querySelectorAll(".service-grid,.process-grid,.testimonial-grid,.portfolio-grid").forEach(grid=>{
+  [...grid.children].forEach((child,index)=>{
+    child.style.transitionDelay = `${Math.min(index * 55, 220)}ms`;
+  });
+});
 
 })();
 
